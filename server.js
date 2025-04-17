@@ -5,23 +5,11 @@ const nodemailer = require("nodemailer");
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://portfolio-mi4lu9x1m-abhishekroshans-projects.vercel.app"
-];
-
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: "*",
   methods: ["POST"],
   allowedHeaders: ["Content-Type"]
 }));
-
 
 app.use(express.json());
 
